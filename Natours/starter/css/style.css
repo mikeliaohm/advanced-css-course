@@ -51,6 +51,10 @@ body {
   height: 35px;
 }
 
+.logo:hover {
+  animation: rotate 1s ease-out;
+}
+
 .text-box {
   position: absolute;
   /* 40% or 50% relative to the parent element */
@@ -62,6 +66,9 @@ body {
 .heading-primary {
   color: #ffffff;
   text-transform: uppercase;
+
+  /* stop animation from shaking */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -69,6 +76,17 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  /* specify name and duration of the animation */
+  animation-name: moveInLeft;
+  animation-duration: 1.5s;
+  /* ease-in ease-out cubic-bezier */
+  animation-timing-function: ease-out;
+
+  /*
+  animation-iteration-count: 3;
+  animation-delay: 3s;
+   */
 }
 
 .heading-primary-sub {
@@ -76,4 +94,51 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* shorthand for name, duration, and timing-function */
+  animation: moveInRight 1.5s ease-out;
+}
+
+/* browser is optimized for opacity and transform */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
 }
