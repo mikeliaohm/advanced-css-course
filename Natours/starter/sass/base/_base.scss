@@ -1,0 +1,18 @@
+/* reset CSS so no default CSS properties are inherited */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; // 10px / 16px;
+}
+
+/* font can be inherited so we use body selector */
+body {
+  box-sizing: border-box;
+}
