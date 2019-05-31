@@ -82,6 +82,9 @@
   }
 
   &__img {
+    // put image in a div container that fits in a grid
+    // style width and height both at 100%
+    // finally, add object-fit property to cover
     width: 100%;
     height: 100%;
     object-fit: cover;
